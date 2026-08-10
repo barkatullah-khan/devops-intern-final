@@ -1,0 +1,11 @@
+Grafana Loki Setup & Verification
+==================================
+
+1. Starting Loki via Docker:
+   docker run -d --name=loki -p 3100:3100 grafana/loki:latest
+
+2. Verifying Loki status:
+   curl http://localhost:3100/ready
+
+3. Querying Loki logs using LogCLI or HTTP API:
+   curl -G -s "http://localhost:3100/loki/api/v1/query_range" --data-urlencode 'query={app="hello-devops"}'
